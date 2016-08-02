@@ -491,6 +491,7 @@ class QueryRegressionTest extends TestCase
         ]);
 
         $result = $table->find()->contain(['Articles.Tags'])->toArray();
+        debug($result);
         $this->assertEquals(
             ['tag1', 'tag3'],
             collection($result[2]->articles[0]->tags)->extract('name')->toArray()
